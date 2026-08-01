@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pages.gradgermany.com/sitemap.xml
