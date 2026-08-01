@@ -9,214 +9,432 @@
 <meta name="robots" content="index, follow">
 <style>
   :root {
-    --ink: #1a1a1a;
-    --muted: #5f5f5f;
-    --accent: #0a5c36;
-    --accent-light: #e7f3ec;
-    --border: #e6e6e6;
+    --ink: #14241d;
+    --muted: #5f6b66;
+    --accent: #0a7a45;
+    --accent-dark: #075c34;
+    --accent-light: #eaf7f0;
+    --border: #e3e8e5;
+    --shadow: 0 10px 30px rgba(10, 90, 50, 0.08);
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
     color: var(--ink);
-    background: #fdfdfb;
+    background: #fbfdfc;
     line-height: 1.7;
   }
+  a { color: var(--accent); }
   .wrap {
-    max-width: 760px;
+    max-width: 980px;
     margin: 0 auto;
-    padding: 48px 24px 80px;
+    padding: 0 24px 80px;
   }
-  header.site-header {
-    border-bottom: 3px solid var(--ink);
-    padding-bottom: 24px;
-    margin-bottom: 40px;
+  nav.topbar {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  header.site-header .kicker {
+  nav.topbar img { height: 36px; }
+  nav.topbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  nav.topbar .nav-links a {
+    margin-left: 22px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .hero {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 24px 56px;
+    max-width: 932px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+  .hero img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.55);
+  }
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px;
+  }
+  .hero-content .kicker {
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     font-size: 13px;
+    font-weight: 700;
+    color: #baf3d2;
+    margin-bottom: 14px;
+  }
+  .hero-content h1 {
+    font-size: 44px;
+    margin: 0 0 16px;
+    max-width: 560px;
+    line-height: 1.15;
+  }
+  .hero-content p {
+    font-size: 18px;
+    max-width: 520px;
+    color: #eef7f1;
+    margin: 0 0 28px;
+  }
+  .hero-ctas a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 14px 26px;
+    border-radius: 8px;
+    margin-right: 14px;
+    font-size: 15px;
+  }
+  .hero-ctas .primary { background: var(--accent); color: #fff; }
+  .hero-ctas .secondary { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+
+  article section { margin-bottom: 56px; }
+  article > section:first-of-type { margin-top: 0; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    font-weight: 700;
     color: var(--accent);
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  header.site-header h1 {
-    font-size: 42px;
-    margin: 0 0 12px;
-  }
-  header.site-header p.lede {
-    font-size: 19px;
-    color: var(--muted);
-    margin: 0;
-  }
-  article section {
-    margin-bottom: 44px;
+    margin-bottom: 10px;
   }
   article h2 {
-    font-size: 26px;
-    border-left: 5px solid var(--accent);
-    padding-left: 14px;
-    margin-bottom: 16px;
+    font-size: 28px;
+    margin: 0 0 16px;
   }
-  article p {
+  article > section > p.lede {
     font-size: 17px;
-    color: #333;
+    color: var(--muted);
+    max-width: 700px;
   }
+
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 24px;
   }
   .card {
-    background: var(--accent-light);
+    background: #fff;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 18px;
-    font-family: Arial, sans-serif;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s ease;
   }
-  .card h3 {
-    margin: 0 0 8px;
-    font-size: 16px;
-    color: var(--accent);
+  .card:hover { transform: translateY(-3px); }
+  .card h3 { margin: 0 0 8px; font-size: 17px; }
+  .card p { font-size: 14px; margin: 0 0 14px; color: var(--muted); }
+  .card a { font-size: 14px; font-weight: 700; text-decoration: none; }
+  .card a:hover { text-decoration: underline; }
+
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
   }
-  .card p {
+  .pill-row a {
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    border: 1px solid #cdeddb;
+    border-radius: 999px;
+    padding: 9px 18px;
     font-size: 14px;
-    margin: 0 0 10px;
-    color: var(--muted);
-  }
-  .card a {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--accent);
+    font-weight: 600;
     text-decoration: none;
   }
-  .card a:hover { text-decoration: underline; }
-  ul.plain {
-    padding-left: 20px;
-  }
-  ul.plain li {
-    margin-bottom: 8px;
-    font-size: 17px;
-  }
-  .cta-box {
-    background: var(--ink);
-    color: #fff;
-    border-radius: 10px;
+  .pill-row a:hover { background: #dcf4e6; }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+    background: var(--accent-light);
+    border-radius: 18px;
     padding: 32px;
-    text-align: center;
-    font-family: Arial, sans-serif;
   }
-  .cta-box h2 {
+  .split img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    box-shadow: var(--shadow);
+  }
+  .split h2 { margin-top: 0; }
+  .split .btn {
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 10px;
+    background: var(--accent);
     color: #fff;
-    border: none;
-    padding: 0;
-    font-size: 24px;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
   }
+  .split .btn.alt {
+    background: #fff;
+    color: var(--accent-dark);
+    border: 1px solid #cdeddb;
+  }
+  @media (max-width: 700px) {
+    .split { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 32px; }
+    .hero img { height: 320px; }
+  }
+
+  ul.plain { padding-left: 20px; }
+  ul.plain li { margin-bottom: 8px; font-size: 16px; }
+
+  .cta-box {
+    background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+    color: #fff;
+    border-radius: 18px;
+    padding: 44px;
+    text-align: center;
+  }
+  .cta-box h2 { color: #fff; font-size: 28px; margin: 0 0 10px; }
+  .cta-box p { color: #e3f6ea; margin: 0 0 22px; }
   .cta-box a.btn {
     display: inline-block;
-    margin-top: 16px;
     background: #fff;
-    color: var(--ink);
+    color: var(--accent-dark);
     text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 6px;
-    font-weight: bold;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 800;
+    margin: 0 8px;
   }
+  .cta-box a.btn.outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.6);
+  }
+
   footer.site-footer {
     margin-top: 60px;
-    padding-top: 20px;
+    padding-top: 28px;
     border-top: 1px solid var(--border);
-    font-family: Arial, sans-serif;
     font-size: 13px;
     color: var(--muted);
-    text-align: center;
   }
-  footer.site-footer a { color: var(--accent); }
+  footer.site-footer .foot-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  footer.site-footer a { color: var(--muted); text-decoration: none; font-weight: 600; }
+  footer.site-footer a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
-<div class="wrap">
-<header class="site-header">
-<div class="kicker">Study Abroad Guide</div>
-<h1>GradGermany</h1>
-<p class="lede">Helping international students find and apply to the right university programmes in Germany &mdash; from free profile evaluation to visa and arrival.</p>
-</header>
 
+<nav class="topbar">
+<a class="brand" href="https://www.gradgermany.com"><img src="https://www.gradgermany.com/images/logo-80.webp" alt="GradGermany logo"> GradGermany</a>
+<div class="nav-links">
+<a href="https://www.gradgermany.com/about">About</a>
+<a href="https://www.gradgermany.com/programmes">Programmes</a>
+<a href="https://www.gradgermany.com/services">Services</a>
+<a href="https://www.gradgermany.com/german-courses">German Courses</a>
+<a href="https://www.gradgermany.com/blog">Blog</a>
+<a href="https://www.gradgermany.com/contact">Contact</a>
+</div>
+</nav>
+
+<div class="hero">
+<img src="https://www.gradgermany.com/images/hero-students.webp" alt="Indian students studying in Germany at a top-ranked German university">
+<div class="hero-content">
+<div class="kicker">Study Abroad Guide</div>
+<h1>Study in Germany. Shape Your Future.</h1>
+<p>Free profile evaluation, 21,777+ programmes across 536+ public universities, and end-to-end guidance from application to visa and arrival.</p>
+<div class="hero-ctas">
+<a class="primary" href="https://www.gradgermany.com/services/profile-evaluation">Get Free Profile Evaluation</a>
+<a class="secondary" href="https://www.gradgermany.com/programmes">Browse Programmes</a>
+</div>
+</div>
+</div>
+
+<div class="wrap">
 <article>
 
 <section>
+<div class="eyebrow">About Us</div>
 <h2>Study in Germany with GradGermany</h2>
-<p>GradGermany is an education consultancy platform that helps students search thousands of programmes, evaluate their eligibility, and manage their applications to German universities from start to finish. We work only with public universities and accredited Ausbildung programs, so your tuition stays low or free.</p>
-<p>Read more <a href="https://www.gradgermany.com/about">about GradGermany</a> and our approach to admissions guidance.</p>
+<p class="lede">GradGermany is an education consultancy platform that helps students search thousands of programmes, evaluate their eligibility, and manage their applications to German universities from start to finish. We work only with public universities and accredited Ausbildung programs, so your tuition stays low or free.</p>
+<p>Read more <a href="https://www.gradgermany.com/about">about GradGermany</a> or check out our <a href="https://www.gradgermany.com/study-in-germany">complete Study in Germany guide</a>.</p>
 </section>
 
 <section>
-<h2>What we offer</h2>
-<p>From your first profile evaluation to settling into life in Germany, our services cover every stage of the journey.</p>
+<div class="eyebrow">Services</div>
+<h2>Everything you need, in one place</h2>
+<p class="lede">From your first profile evaluation to settling into life in Germany, our services cover every stage of the journey.</p>
 <div class="card-grid">
 <div class="card">
-<h3>Admission Consulting</h3>
-<p>Free profile evaluation, CGPA eligibility check, SOP and LOR support, complete application management.</p>
+<h3>Free Profile Evaluation</h3>
+<p>Honest, free assessment of your eligibility for German public universities.</p>
 <a href="https://www.gradgermany.com/services/profile-evaluation">Get evaluated &rarr;</a>
 </div>
 <div class="card">
-<h3>Ausbildung</h3>
-<p>A 3-year paid vocational training pathway in Germany &mdash; no degree required, with a monthly stipend.</p>
-<a href="https://www.gradgermany.com/ausbildung">Explore Ausbildung &rarr;</a>
+<h3>University Application Support</h3>
+<p>Complete application management, from shortlisting to submission.</p>
+<a href="https://www.gradgermany.com/services/university-application-support">Learn more &rarr;</a>
 </div>
 <div class="card">
-<h3>German Language Courses</h3>
-<p>A1 to C1 courses with certified tutors and exam preparation for TestDaF, telc, Goethe, and DSH.</p>
-<a href="https://www.gradgermany.com/">View German courses &rarr;</a>
+<h3>SOP & LOR Guidance</h3>
+<p>Get expert help crafting statements of purpose and recommendation letters.</p>
+<a href="https://www.gradgermany.com/services/sop-lor-guidance">Learn more &rarr;</a>
 </div>
 <div class="card">
-<h3>All Services</h3>
-<p>Visa processing, accommodation search, airport pickup, and post-arrival support in one place.</p>
-<a href="https://www.gradgermany.com/services">See all services &rarr;</a>
+<h3>Student Visa Processing</h3>
+<p>German student visa support from India, embassy appointments included.</p>
+<a href="https://www.gradgermany.com/services/student-visa-processing">Learn more &rarr;</a>
+</div>
+<div class="card">
+<h3>Blocked Account Setup</h3>
+<p>Sperrkonto setup via Expatrio or Fintiba, handled for you.</p>
+<a href="https://www.gradgermany.com/services/blocked-account-setup">Learn more &rarr;</a>
+</div>
+<div class="card">
+<h3>TestDaF Preparation</h3>
+<p>Get exam-ready with structured TestDaF preparation.</p>
+<a href="https://www.gradgermany.com/services/testdaf-preparation">Learn more &rarr;</a>
+</div>
+<div class="card">
+<h3>Accommodation Assistance</h3>
+<p>Dormitory applications, private housing search, and city guidance.</p>
+<a href="https://www.gradgermany.com/services/accommodation-assistance">Learn more &rarr;</a>
+</div>
+<div class="card">
+<h3>Airport Pickup & Orientation</h3>
+<p>Meet and greet at the airport with transfer and city orientation.</p>
+<a href="https://www.gradgermany.com/services/airport-pickup-orientation">Learn more &rarr;</a>
+</div>
+<div class="card">
+<h3>Post-Arrival Support</h3>
+<p>Anmeldung, bank account, and health insurance enrollment support.</p>
+<a href="https://www.gradgermany.com/services/post-arrival-support">Learn more &rarr;</a>
+</div>
+</div>
+<p style="margin-top:20px"><a href="https://www.gradgermany.com/services"><strong>View all services &rarr;</strong></a></p>
+</section>
+
+<section>
+<div class="eyebrow">Programmes</div>
+<h2>Find your programme from 21,777+ options</h2>
+<p class="lede">Search accredited degrees across 536+ universities in Germany, filter by tuition, language, and intake, then shortlist your favourites and send them to a consultant for a free evaluation.</p>
+<div class="pill-row">
+<a href="https://www.gradgermany.com/programmes">Browse All Programmes</a>
+<a href="https://www.gradgermany.com/universities">Browse Universities</a>
+<a href="https://www.gradgermany.com/masters-in-germany">Masters in Germany</a>
+<a href="https://www.gradgermany.com/bachelors-in-germany">Bachelors in Germany</a>
+<a href="https://www.gradgermany.com/mba-in-germany">MBA in Germany</a>
+<a href="https://www.gradgermany.com/ms-in-computer-science-germany">MS in Computer Science</a>
+<a href="https://www.gradgermany.com/data-science-germany">Data Science & AI</a>
+<a href="https://www.gradgermany.com/study-medicine-in-germany">Medicine</a>
+<a href="https://www.gradgermany.com/scholarships-germany">Scholarships</a>
+<a href="https://www.gradgermany.com/free-tuition-universities-germany">Free Tuition Universities</a>
+<a href="https://www.gradgermany.com/english-taught-programmes-germany">English-Taught Programmes</a>
+<a href="https://www.gradgermany.com/study-in-germany-without-ielts">Without IELTS</a>
+<a href="https://www.gradgermany.com/german-grade-converter">German Grade Converter</a>
+<a href="https://www.gradgermany.com/dmat-checker">dMAT Degree Checker</a>
+</div>
+</section>
+
+<section>
+<div class="split">
+<img src="https://www.gradgermany.com/images/landing/ausbildung-in-germany-hero.webp" alt="Ausbildung apprentice training in Germany">
+<div>
+<div class="eyebrow">Ausbildung</div>
+<h2>Earn while you learn in Germany</h2>
+<p>A 3-year paid vocational training pathway, no degree required. Get a monthly stipend of &euro;1,000+, free training, and a direct route to permanent residency &mdash; the fastest legal route to long-term residence in Germany.</p>
+<a class="btn" href="https://www.gradgermany.com/ausbildung">Explore Ausbildung</a>
 </div>
 </div>
 </section>
 
 <section>
-<h2>Find your programme</h2>
-<p>Search over 21,777 accredited degrees across 536+ universities in Germany, filter by tuition, language, and intake, then shortlist your favourites and send them to a consultant for a free evaluation.</p>
-<ul class="plain">
-<li><a href="https://www.gradgermany.com/programmes">Open the Programme Finder</a></li>
-<li><a href="https://www.gradgermany.com/german-grade-converter">Convert your CGPA with the German Grade Converter</a></li>
-</ul>
+<div class="split">
+<div>
+<div class="eyebrow">German Language</div>
+<h2>Learn German A1 to C1 with tutors</h2>
+<p>Online German courses with certified tutors: live classes, exam preparation (TestDaF, telc, Goethe, DSH), and digital study material. Learning German unlocks tuition-free German-taught programmes and the full Ausbildung pipeline.</p>
+<a class="btn" href="https://www.gradgermany.com/german-courses">View Paid German Courses</a>
+<a class="btn alt" href="https://www.gradgermany.com/learn-german">Free Learn German Hub</a>
+<a class="btn alt" href="https://www.gradgermany.com/vocab-builder">Vocab Builder</a>
+</div>
+<img src="https://www.gradgermany.com/images/german-courses/hero.webp" alt="Online German language course with a certified tutor">
+</div>
 </section>
 
 <section>
-<h2>Guides from the blog</h2>
-<p>Our team regularly publishes guides on admissions, visas, and life in Germany for international students.</p>
+<div class="eyebrow">Blog</div>
+<h2>Guides & updates from our team</h2>
+<p class="lede">Our team regularly publishes guides on admissions, visas, and life in Germany for international students.</p>
 <ul class="plain">
-<li>Germany's new dMAT test: what applicants need to know</li>
-<li>Studienkolleg-free pathways: direct entry via JEE and college</li>
-<li>Best universities in Germany for MS in Computer Science</li>
+<li><a href="https://www.gradgermany.com/blog">Germany's new dMAT test: what applicants need to know</a></li>
+<li><a href="https://www.gradgermany.com/blog">Studienkolleg-free pathways: direct entry via JEE and college</a></li>
+<li><a href="https://www.gradgermany.com/blog">Best universities in Germany for MS in Computer Science</a></li>
 </ul>
-<p><a href="https://www.gradgermany.com/blog">Read all articles on the GradGermany blog &rarr;</a></p>
+<p><a href="https://www.gradgermany.com/blog"><strong>Read all articles on the GradGermany blog &rarr;</strong></a></p>
 </section>
 
 <section>
+<div class="eyebrow">FAQ</div>
 <h2>Common questions</h2>
-<p>Wondering whether you can study in Germany for free, what APS certification is, or whether you can work while studying? We answer the most common questions students ask us.</p>
-<p><a href="https://www.gradgermany.com/faq">View all FAQs &rarr;</a></p>
+<p class="lede">Wondering whether you can study in Germany for free, what APS certification is, or whether you can work while studying? We answer the most common questions students ask us.</p>
+<p><a href="https://www.gradgermany.com/faq"><strong>View all FAQs &rarr;</strong></a></p>
 </section>
 
 <section class="cta-box">
 <h2>Ready to start your application?</h2>
-<p>Get a free, honest profile evaluation and see where you stand.</p>
-<a class="btn" href="https://www.gradgermany.com/">Visit GradGermany.com</a>
+<p>Get a free, honest profile evaluation and see where you stand &mdash; in the race for 21,777+ programmes.</p>
+<a class="btn" href="https://www.gradgermany.com/services/profile-evaluation">Free Profile Evaluation</a>
+<a class="btn outline" href="https://www.gradgermany.com/">Visit GradGermany.com</a>
 </section>
 
 </article>
 
 <footer class="site-footer">
-<p>&copy; 2026 GradGermany &middot; <a href="https://www.gradgermany.com/contact">Contact us</a> &middot; <a href="https://www.gradgermany.com/">www.gradgermany.com</a></p>
+<div class="foot-links">
+<a href="https://www.gradgermany.com/about">About</a>
+<a href="https://www.gradgermany.com/services">Services</a>
+<a href="https://www.gradgermany.com/programmes">Programmes</a>
+<a href="https://www.gradgermany.com/ausbildung">Ausbildung</a>
+<a href="https://www.gradgermany.com/german-courses">German Courses</a>
+<a href="https://www.gradgermany.com/blog">Blog</a>
+<a href="https://www.gradgermany.com/faq">FAQ</a>
+<a href="https://www.gradgermany.com/contact">Contact</a>
+</div>
+<p>&copy; 2026 GradGermany &middot; <a href="https://www.gradgermany.com/">www.gradgermany.com</a></p>
 </footer>
 </div>
 </body>
